@@ -3,6 +3,7 @@ from pathlib import Path
 import joblib
 from flask import Flask, jsonify, request
 from werkzeug.exceptions import BadRequest
+from flask import send_file
 
 FEATURE_COLUMNS = [
     'HHH X-pos',
@@ -58,6 +59,17 @@ def load_model(path: Path):
 
 classifier = load_model(CLASSIFIER_PATH)
 regressor = load_model(REGRESSOR_PATH)
+
+from fetch_nasa import historical_predictions
+
+
+@app.route('/api/historical', methods=['GET'])
+def api_historical():
+    try:
+        results = historical_predictions()
+        return jsonify(results)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 def parse_input(data: dict):

@@ -27,6 +27,8 @@
         <div class="dashboard-panel">
           <div class="dashboard-launcher">
             <button id="launch-dashboard" type="button">Launch Dashboard</button>
+            <button id="refresh-dashboard" type="button" class="secondary-action">Refresh Predictions</button>
+            <p id="dashboard-updated" class="update-timestamp">Last refreshed: not yet</p>
             <p class="dashboard-note">Open the live dashboard to view solar activity, prediction insights, and alert summaries.</p>
             <div id="dashboard-error" class="prediction-error hidden" role="alert"></div>
           </div>
@@ -58,6 +60,21 @@
               </div>
             </div>
 
+            <div class="dashboard-explain">
+              <div class="explain-card">
+                <strong>How to read these predictions</strong>
+                <p>
+                  Probability is a combined metric derived from the model's predicted strength.
+                  Higher values indicate larger chance of impactful flares within 24 hours.
+                </p>
+                <ul>
+                  <li><strong>Model inputs:</strong> Features include position, duration, and measured activity.</li>
+                  <li><strong>Data source:</strong> Live flare events are pulled from NASA DONKI when available.</li>
+                  <li><strong>Confidence:</strong> Model-confidence reflects training-set agreement; treat it as guidance.</li>
+                </ul>
+              </div>
+            </div>
+
             <div class="dashboard-graph-grid">
               <div class="dashboard-card graph-card">
                 <strong>Historical Trend Graph</strong>
@@ -71,10 +88,47 @@
                 <strong>Recent Solar Events</strong>
                 <ul id="recent-events-list" class="event-list"></ul>
               </div>
+              <div class="dashboard-card map-card">
+                <strong>Space weather radar</strong>
+                <div class="space-map" aria-hidden="true">
+                  <div class="orbit orbit-outer"></div>
+                  <div class="orbit orbit-middle"></div>
+                  <div class="orbit orbit-inner"></div>
+                  <div class="earth"></div>
+                  <div class="flare-ring"></div>
+                  <div class="satellite-dot sat-geo"></div>
+                  <div class="satellite-dot sat-meo"></div>
+                  <div class="satellite-dot sat-leo"></div>
+                </div>
+                <p class="map-note">Projected flare impact on Low, Medium, and Geostationary orbit layers.</p>
+              </div>
+              <div class="dashboard-card satellite-card">
+                <div class="card-header sticky-card-header">
+                  <div>
+                    <strong>Satellites at risk</strong>
+                    <p class="satellite-note">Alerts are based on NASA flare activity guidance, orbit risk, and spacecraft mission type.</p>
+                  </div>
+                  <div class="risk-legend" id="risk-legend"></div>
+                </div>
+                <div class="satellite-outer">
+                  <div class="status-row">
+                    <span class="refresh-status" id="refresh-status">Auto-refresh enabled</span>
+                    <span class="last-updated" id="last-updated">Last update: not yet</span>
+                  </div>
+                  <div class="satellite-grid" id="satellite-alerts-list"></div>
+                  <div class="satellite-detail" id="satellite-detail">Click a satellite to view detailed risk reasoning.</div>
+                </div>
+              </div>
               <div class="dashboard-card alerts-card">
                 <strong>Alert Notifications</strong>
                 <ul id="alert-notifications-list" class="alert-list"></ul>
               </div>
+            </div>
+            <div class="dashboard-card forecast-card">
+              <strong>Forecast Window</strong>
+              <div class="forecast-windows" id="forecast-windows"></div>
+              <div class="recommendation-box" id="recommendation-box">Recommended actions will appear here.</div>
+            </div>
             </div>
           </div>
 
