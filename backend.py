@@ -29,6 +29,16 @@ MODEL_DIR = Path(__file__).resolve().parent
 CLASSIFIER_PATH = MODEL_DIR / 'flare_classifier.joblib'
 REGRESSOR_PATH = MODEL_DIR / 'flare_strength_regressor.joblib'
 
+try:
+    # ensure models exist (will attempt download if MODEL_URL_BASE is set)
+    from load_models import ensure_models
+
+    ensure_models(MODEL_DIR)
+except Exception as e:
+    # If ensure_models fails, we keep going so the original FileNotFoundError is raised
+    # when attempting to load the models below. This prints a concise hint.
+    print('Model check warning:', e)
+
 app = Flask(__name__)
 
 
