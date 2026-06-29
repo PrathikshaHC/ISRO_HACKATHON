@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SuryaWatch Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="content-band dark dashboard-page">
+        <div class="section-copy">
+          <p class="eyebrow">Dashboard</p>
+          <h2>Solar flare forecasting tools</h2>
+          <p>
+            The standalone dashboard page shows model inputs and prediction utilities without the site navigation pane.
+          </p>
+          <a class="secondary-action back-link" href="index.html">Back to home</a>
+        </div>
+
+        <div class="dashboard-panel">
+          <div class="dashboard-launcher">
+            <button id="launch-dashboard" type="button">Launch Dashboard</button>
+            <p class="dashboard-note">Open the live dashboard to view solar activity, prediction insights, and alert summaries.</p>
+            <div id="dashboard-error" class="prediction-error hidden" role="alert"></div>
+          </div>
+
+          <div id="dashboard-content" class="dashboard-content hidden">
+            <div class="dashboard-summary-grid">
+              <div class="dashboard-card activity-card">
+                <strong>Current Solar Activity</strong>
+                <p id="current-solar-activity">Loading latest solar metrics…</p>
+              </div>
+              <div class="dashboard-card flare-card">
+                <strong>Today's Flare Prediction</strong>
+                <p id="today-flare-prediction">Awaiting launch</p>
+              </div>
+              <div class="dashboard-card gauge-card">
+                <strong>Probability Gauge</strong>
+                <div class="gauge">
+                  <span id="probability-gauge" class="gauge-fill" style="width: 0%"></span>
+                </div>
+                <span id="probability-label" class="gauge-label">0%</span>
+              </div>
+              <div class="dashboard-card class-card">
+                <strong>Predicted Flare Class</strong>
+                <p id="predicted-flare-class">—</p>
+              </div>
+              <div class="dashboard-card confidence-card">
+                <strong>AI Confidence Score</strong>
+                <p id="ai-confidence-score">—</p>
+              </div>
+            </div>
+
+            <div class="dashboard-graph-grid">
+              <div class="dashboard-card graph-card">
+                <strong>Historical Trend Graph</strong>
+                <div id="historical-graph" class="graph-panel"></div>
+              </div>
+              <div class="dashboard-card interactive-card">
+                <strong>Interactive Charts</strong>
+                <div id="interactive-charts" class="interactive-charts"></div>
+              </div>
+              <div class="dashboard-card events-card">
+                <strong>Recent Solar Events</strong>
+                <ul id="recent-events-list" class="event-list"></ul>
+              </div>
+              <div class="dashboard-card alerts-card">
+                <strong>Alert Notifications</strong>
+                <ul id="alert-notifications-list" class="alert-list"></ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

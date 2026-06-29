@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SuryaWatch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-scene" id="home" aria-label="Solar observation homepage">
+        <div class="sky">
+          <span class="sun"></span>
+          <span class="corona corona-one"></span>
+          <span class="corona corona-two"></span>
+          <span class="flare flare-one"></span>
+          <span class="flare flare-two"></span>
+          <span class="star star-one"></span>
+          <span class="star star-two"></span>
+          <span class="star star-three"></span>
+        </div>
+
+        <div class="orbital-rings" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <header class="topbar">
+          <a class="brand" href="#home" aria-label="SuryaWatch home">
+            <span class="brand-mark">S</span>
+            <span>SuryaWatch</span>
+          </a>
+          <nav class="nav-links" aria-label="Primary navigation">
+            <a href="#about">About</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#forecast">Forecast</a>
+          </nav>
+        </header>
+
+        <div class="hero-content">
+          <p class="eyebrow">ISRO Hackathon Solar Intelligence</p>
+          <h1>Solar flare awareness starts here</h1>
+          <p class="hero-copy">
+            Explore flare activity, instrument coverage, and mission-ready insights through a
+            calm animated interface built for space weather monitoring.
+          </p>
+          <div class="hero-actions" aria-label="Main actions">
+            <a class="primary-action" href="dashboard.html">Open Dashboard</a>
+            <a class="secondary-action" href="#about">Learn More</a>
+          </div>
+        </div>
+
+        <aside class="metric-card efficiency">
+          <span class="metric-icon">+</span>
+          <strong>92%</strong>
+          <span>Signal Confidence</span>
+        </aside>
+
+        <aside class="metric-card impact">
+          <span class="metric-icon">~</span>
+          <strong>40%</strong>
+          <span>Faster Event Review</span>
+        </aside>
+
+        <aside class="metric-card saved">
+          <span class="metric-icon">*</span>
+          <strong>1.2 T</strong>
+          <span>Records Indexed</span>
+        </aside>
+
+        <div class="bottom-metrics" aria-label="Solar monitoring summary">
+          <article class="metric-tile activity">
+            <span class="meter" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+            </span>
+            <div>
+              <strong>8.2 k</strong>
+              <span>Flares Cataloged</span>
+            </div>
+          </article>
+          <article class="metric-tile">
+            <span class="tile-icon">A</span>
+            <div>
+              <strong>75%</strong>
+              <span>Instrument Coverage</span>
+            </div>
+          </article>
+          <article class="metric-tile">
+            <span class="tile-icon">S</span>
+            <div>
+              <strong>1.2k</strong>
+              <span>Events / Year</span>
+            </div>
+          </article>
+          <article class="metric-tile">
+            <span class="avatar-stack" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <div>
+              <strong>10M+</strong>
+              <span>Data Points</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-band" id="about">
+        <div class="section-copy">
+          <p class="eyebrow">About</p>
+          <h2>Built around solar flare data and instrument context.</h2>
+          <p>
+            SuryaWatch is a starting point for a solar activity experience. The homepage sets
+            up the mission feel now, while the dashboard can later connect to your flare and
+            instrument dataset.
+          </p>
+        </div>
+        <div class="info-grid">
+          <article>
+            <strong>Observe</strong>
+            <span>Track flare volume, class, timing, and affected instruments.</span>
+          </article>
+          <article>
+            <strong>Compare</strong>
+            <span>Move between mission windows and analyze patterns quickly.</span>
+          </article>
+          <article>
+            <strong>Explain</strong>
+            <span>Turn solar events into readable summaries for teams and judges.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-band dark" id="dashboard">
+        <div class="section-copy">
+          <p class="eyebrow">Dashboard</p>
+          <h2>Dashboard window reserved.</h2>
+          <p>
+            This area is ready for the layout you want next: charts, filters, tables, event
+            cards, or live mission summaries.
+          </p>
+        </div>
+        <div class="dashboard-panel">
+          <button id="toggle-parameters" type="button">Show model parameters</button>
+          <div id="parameter-panel" class="parameter-panel hidden">
+            <strong>Model input parameters</strong>
+            <ul class="parameter-list" aria-live="polite"></ul>
+            <p class="parameter-note">These are the same feature names used by the trained backend model.</p>
+          </div>
+        </div>
+        <div class="placeholder-window">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>Dashboard Preview</strong>
+        </div>
+      </section>
+
+      <section class="content-band" id="forecast">
+        <div class="section-copy">
+          <p class="eyebrow">Forecast</p>
+          <h2>A third window for prediction or alerts.</h2>
+          <p>
+            I set this up as Forecast, since it naturally pairs with solar flare monitoring.
+            It can become alerts, resources, mission timeline, or anything else you prefer.
+          </p>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
