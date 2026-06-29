@@ -82,10 +82,11 @@ const renderDashboardOverview = (prediction) => {
   if (predictedFlareClass) predictedFlareClass.textContent = flareClass;
   if (aiConfidenceScore) aiConfidenceScore.textContent = `${confidence}%`;
   if (historicalGraph) {
+    // show the same reading for all days (use dashboard probability for a consistent metric)
+    const barHeight = probability; // percentage value computed above
     historicalGraph.innerHTML = [...Array(7).keys()]
       .map((day) => {
-        const value = [28, 45, 39, 52, 37, 60, 55][day];
-        return `<div class="trend-bar"><span>${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][day]}</span><div class="trend-fill" style="height:${value}%"></div></div>`;
+        return `<div class="trend-bar"><span>${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][day]}</span><div class="trend-fill" style="height:${barHeight}%"></div></div>`;
       })
       .join('');
   }
